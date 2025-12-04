@@ -39,7 +39,7 @@
         <div class="stat-card" style="background: #fff; padding: 20px; border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center;">
            <div class="stat-card">
-    <div class="stat-value">{{ $activos }}</div>
+    <div class="stat-value">{{ $usuariosActivos }}</div>
     <div class="stat-label">Usuarios Activos</div>
 </div>
 

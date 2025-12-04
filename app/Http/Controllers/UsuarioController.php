@@ -11,7 +11,7 @@ class UsuarioController extends Controller
 {
     public function index()
     {
-        $usuarios = User::all();
+        $usuarios = User::all(); // <--- AQUÍ ERA EL ERROR
         return view('administrador.usuarios.index', compact('usuarios'));
     }
 
@@ -23,15 +23,18 @@ class UsuarioController extends Controller
 
     public function store(Request $request)
     {
+        
         $request->validate([
-            'nombre' => 'required',
-            'apellido_paterno' => 'required',
-            'apellido_materno' => 'required',
-            'usuario' => 'required|unique:users,usuario',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:6',
-            'dependencia_id' => 'required|exists:dependencias,id',
-        ]);
+    'nombre' => 'required',
+    'apellido_paterno' => 'required',
+    'apellido_materno' => 'required',
+    'usuario' => 'required|unique:users,usuario',
+    'email' => 'required|email|unique:users,email',
+    'password' => 'required|min:6',
+    'dependencia_id' => 'required|exists:dependencias,id',
+    'estado' => 'required|in:activo,inactivo',
+]);
+
 
         User::create([
             'nombre' => $request->nombre,
@@ -46,7 +49,7 @@ class UsuarioController extends Controller
         ]);
 
         return redirect()
-                ->route('admin.usuarios.index')
-                ->with('success', 'Usuario creado correctamente.');
+            ->route('admin.usuarios.index')
+            ->with('success', 'Usuario creado correctamente.');
     }
 }

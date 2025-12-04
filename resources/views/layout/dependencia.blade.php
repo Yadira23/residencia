@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('titulo') - Admin</title> <!-- Custom fonts for this template-->
+    <title>@yield('titulo') - Dependencia</title> <!-- Custom fonts for this template-->
     <link href="{{ asset('sbadmin2/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet"> <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet"> <!-- Custom styles for this template-->
     <link href="{{ asset('sbadmin2/css/sb-admin-2.min.css') }}" rel="stylesheet"> <!-- Bootstrap -->
@@ -15,7 +15,10 @@
     <div id="wrapper"> <!-- ====== SIDEBAR (menu lateral) ====== -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar"> <!-- Logo --> <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15"> <i class="fas fa-laugh-wink"></i> </div>
-                <div class="sidebar-brand-text mx-3">ADMINISTRADOR</div>
+                <div class="sidebar-brand-text mx-3">
+                    {{ $dep->nombre ?? 'DEPENDENCIA' }}
+                </div>
+
             </a>
             <hr class="sidebar-divider my-0"> <!-- Buscador del Sidebar -->
             <div class="px-3 mt-3">
@@ -25,41 +28,7 @@
             </div>
             <hr class="sidebar-divider"> <!-- Dashboard --> <!-- Nav Item - Dashboard -->
             <li class="nav-item active"> <a class="nav-link" href="{{ route('admin.panel') }}"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span> </a> </li>
-            <li class="nav-item">
-    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDependencias" aria-expanded="true" aria-controls="collapseDependencias">
-        <i class="fas fa-building"></i>
-        <span>Dependencias</span>
-    </a>
-    <div id="collapseDependencias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Selecciona una opción:</h6>
-            <a class="collapse-item" href="{{ route('admin.dependencias.index') }}">Ver</a>
-            <a class="collapse-item" href="{{ route('admin.dependencias.create') }}">Crear</a>
-        </div>
-    </div>
-</li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="{{ route('admin.usuarios.index') }}" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-user-friends"></i> <span>Usuarios</span> </a> </li>
-
-            <li class="nav-item"> <a class="nav-link collapsed" href="{{ route('admin.dependencias.index') }}" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-chart-bar"></i> <span>Indicador</span> </a> </li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-chart-line"></i> <span>Indicador</span> </a> </li> <!-- Divider -->
-            <hr class="sidebar-divider"> <!-- Heading -->
-            <div class="sidebar-heading"> Gestión </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
            
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-boxes"></i> <span>Activos</span> </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Componentes personalizados:</h6> <a class="collapse-item" href="#">Respuestas</a> <a class="collapse-item" href="#">Encuesta</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseTwo"> <i class="fas fa-clipboard-check"></i> <span>Evaluación</span> </a> </li> <!-- Divider -->
-            <hr class="sidebar-divider"> <!-- Heading -->
-            <div class="sidebar-heading"> Administración </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-cog"></i> <span>Configuración</span> </a> </li> <!-- Divider -->
-            <hr class="sidebar-divider"> <!-- Heading -->
-            <div class="sidebar-heading"> Reportes </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-file-alt"></i> <span>Reportes</span> </a> </li> <!-- Divider -->
-            <hr class="sidebar-divider"> <!-- Heading -->
             <div class="sidebar-heading"> Cuenta </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-id-card"></i> <span>Mis Datos</span> </a> </li> <!-- Divider -->
             <hr class="sidebar-divider"> <!-- Heading -->
@@ -153,7 +122,7 @@
                 <div class="container-fluid">
 
 
-                <!-- MIGA DE PAN -->
+                    <!-- MIGA DE PAN -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb shadow-sm">
 
@@ -182,16 +151,16 @@
 
                         </ol>
                     </nav>
- <div id="content-wrapper" class="d-flex flex-column"> <!-- Main Content -->
-                <div id="content">
-                    <div class="container-fluid"> @yield('content') </div>
-                </div> <!-- End of Main Content --> <!-- Footer integrado -->
+                    <div id="content-wrapper" class="d-flex flex-column"> <!-- Main Content -->
+                        <div id="content">
+                            <div class="container-fluid"> @yield('content') </div>
+                        </div> <!-- End of Main Content --> <!-- Footer integrado -->
 
 
-                    @yield('contenido')
-                </div>
-            </div> <!-- Content Wrapper -->
-           
+                        @yield('contenido')
+                    </div>
+                </div> <!-- Content Wrapper -->
+
             </div> <!-- End of Content Wrapper -->
         </div> <!-- ====== END CONTENT WRAPPER ====== -->
     </div> <!-- Scripts -->
@@ -213,15 +182,15 @@
             });
         }
     </script>
-    
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto d-flex justify-content-between" style="font-size: 14px; padding: 8px 15px;">
-                            <div class="text-secondary"> <a href="#" class="text-secondary mx-2">Aviso de Privacidad</a> | <a href="#" class="text-secondary mx-2">Contacto</a> | <a href="#" class="text-secondary mx-2">Documentación</a> </div>
-                            <div class="text-secondary"> Versión <strong>1.0.0</strong> </div>
-                        </div>
-                    </div> 
-                </footer> <!-- End Footer -->
+
+    <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto d-flex justify-content-between" style="font-size: 14px; padding: 8px 15px;">
+                <div class="text-secondary"> <a href="#" class="text-secondary mx-2">Aviso de Privacidad</a> | <a href="#" class="text-secondary mx-2">Contacto</a> | <a href="#" class="text-secondary mx-2">Documentación</a> </div>
+                <div class="text-secondary"> Versión <strong>1.0.0</strong> </div>
+            </div>
+        </div>
+    </footer> <!-- End Footer -->
 </body>
 
 </html>

@@ -1,9 +1,10 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use App\Models\Dependencia;
-use App\Models\Administrador; // o User, según tu proyecto
+use App\Models\User;
 
 class PanelController extends Controller
 {
@@ -16,7 +17,7 @@ class PanelController extends Controller
         $totalCargas = 0;
 
         // Usuarios activos
-        $usuariosActivos = Administrador::count(); // o Administrador::where('activo',1)->count();
+        $usuariosActivos = User::where('estado', 'activo')->count();
 
         // No hay última actualización
         $ultimaActualizacion = null;
