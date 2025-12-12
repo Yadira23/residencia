@@ -30,7 +30,7 @@
             <li class="nav-item active"> <a class="nav-link" href="{{ route('admin.panel') }}"> <i class="fas fa-fw fa-tachometer-alt"></i> <span>Panel</span> </a> </li>
            
             <div class="sidebar-heading"> Cuenta </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-id-card"></i> <span>Mis Datos</span> </a> </li> <!-- Divider -->
+            <li class="nav-item"> <a class="nav-link collapsed" href="{{ route('dependencia.carga', auth()->user()->dependencia_id ?? 1) }}" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-id-card"></i> <span>Carga</span> </a> </li> <!-- Divider -->
             <hr class="sidebar-divider"> <!-- Heading -->
             <div class="sidebar-heading"> Ayuda y Soporte </div> <!-- Nav Item - Pages Collapse Menu --> <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item"> <a class="nav-link collapsed" href="#" aria-expanded="true" aria-controls="collapseUtilities"> <i class="fas fa-question-circle"></i> <span>Ayuda </span> </a> </li> <!-- Divider -->

@@ -7,9 +7,9 @@
 
     {{-- Mensaje de éxito --}}
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <h3 class="mb-3">Gestión de Usuarios</h3>
@@ -53,29 +53,31 @@
                 <td>{{ $user->email }}</td>
 
                 <td>
-                    <a href="{{ route('admin.usuarios.edit', $user) }}" class="btn btn-sm btn-warning">
+                    <a href="{{ route('admin.usuarios.edit', $user->id) }}" class="btn btn-warning">
                         Editar
                     </a>
 
+
+
                     <form action="{{ route('admin.usuarios.destroy', $user) }}"
-                          method="POST"
-                          style="display:inline-block;">
+                        method="POST"
+                        style="display:inline-block;">
                         @csrf
                         @method('DELETE')
 
                         <button class="btn btn-sm btn-danger"
-                                onclick="return confirm('¿Eliminar este usuario?')">
+                            onclick="return confirm('¿Eliminar este usuario?')">
                             Eliminar
                         </button>
                     </form>
                 </td>
             </tr>
             @empty
-                <tr>
-                    <td colspan="8" class="text-center">
-                        No hay usuarios registrados aún.
-                    </td>
-                </tr>
+            <tr>
+                <td colspan="8" class="text-center">
+                    No hay usuarios registrados aún.
+                </td>
+            </tr>
             @endforelse
         </tbody>
     </table>

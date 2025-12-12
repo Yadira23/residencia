@@ -64,4 +64,8 @@ Route::prefix('dependencia')->group(function () {
 
     Route::get('/perfil', [App\Http\Controllers\DepenController::class, 'perfil'])
         ->name('dependencia.perfil');
+
+    
+    Route::get('/carga/{id}', [DepenController::class, 'carga'])
+        ->name('dependencia.carga');
 });
